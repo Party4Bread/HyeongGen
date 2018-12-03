@@ -1,8 +1,4 @@
 class Mul extends Command{
-    arg1: number;
-    arg2: number;
-    flag=0;
-    isFlaged=false;
     /**
      * 현재 스택에 a*b의 값을 넣습니다.
      * @param  {number} a 곱해질a

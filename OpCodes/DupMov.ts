@@ -1,8 +1,4 @@
 class DupMov extends Command{
-    arg1: number;
-    arg2: number;
-    flag=0;
-    isFlaged=false;
     /**
      * 현재 스택의 맨 위수를 b스택에 a개 복제해서 넣습니다.
      * @param  {number} a 복제할 수

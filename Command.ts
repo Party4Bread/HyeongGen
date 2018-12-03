@@ -1,8 +1,8 @@
 abstract class Command{
-    arg1:Number;
-    arg2:Number;
-    isFlaged:Boolean;
-    flag:Number;
+    arg1:number;
+    arg2:number;
+    isFlaged:boolean;
+    flag:number;
     constructor(a:number,b:number,c?:number){
         this.arg1=a;
         this.arg2=b;

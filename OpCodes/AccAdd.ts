@@ -1,8 +1,4 @@
 class AccAdd extends Command{
-    arg1: number;
-    arg2: number;
-    flag=0;
-    isFlaged=false;
     /**
      * 현재 스택에서 a개의 수를 pop 하여 합한것을 b스택에 넣습니다
      * @param  {number} a 누산할 값의 수

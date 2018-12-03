@@ -1,15 +1,16 @@
-class Mul implements Command{
+class Mul extends Command{
     arg1: number;
     arg2: number;
     flag=0;
     isFlaged=false;
+    /**
+     * 현재 스택에 a*b의 값을 넣습니다.
+     * @param  {number} a 곱해질a
+     * @param  {number} b 곱해질b
+     * @param  {number} c? Flag번호
+     */
     constructor(a:number,b:number,c?:number){
-        this.arg1=a;
-        this.arg2=b;
-        if(c!==undefined&&c!==null){
-            this.isFlaged=true;
-            this.flag=c
-        }
+        super(a,b,c);
     }
     toHyeong():string {
         let res="";

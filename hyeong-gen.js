@@ -1,6 +1,6 @@
 "use strict";
 var OpCode;
-(function (OpCode) {
+(function(OpCode) {
     OpCode[OpCode["Mul"] = 0] = "Mul";
     OpCode[OpCode["AccMul"] = 1] = "AccMul";
     OpCode[OpCode["AccAdd"] = 2] = "AccAdd";
@@ -33,8 +33,7 @@ class AccAdd {
         }
         if (this.arg1 < 2) {
             res += "항";
-        }
-        else {
+        } else {
             res += "하" + "아".repeat(this.arg1 - 2) + "앙";
         }
         res += ".".repeat(this.arg2);
@@ -66,8 +65,7 @@ class AccMul {
         }
         if (this.arg1 < 2) {
             res += "핫";
-        }
-        else {
+        } else {
             res += "하" + "아".repeat(this.arg1 - 2) + "핫";
         }
         res += ".".repeat(this.arg2);
@@ -99,8 +97,7 @@ class DupMov {
         }
         if (this.arg1 < 2) {
             res += "흑";
-        }
-        else {
+        } else {
             res += "흐" + "으".repeat(this.arg1 - 2) + "윽";
         }
         res += ".".repeat(this.arg2);
@@ -132,8 +129,7 @@ class InvAccMul {
         }
         if (this.arg1 < 2) {
             res += "흡";
-        }
-        else {
+        } else {
             res += "흐" + "으".repeat(this.arg1 - 2) + "읍";
         }
         res += ".".repeat(this.arg2);
@@ -165,8 +161,7 @@ class Mul {
         }
         if (this.arg1 < 2) {
             res += "형";
-        }
-        else {
+        } else {
             res += "혀" + "어".repeat(this.arg1 - 2) + "엉";
         }
         res += ".".repeat(this.arg2);
@@ -198,8 +193,7 @@ class NegAccAdd {
         }
         if (this.arg1 < 2) {
             res += "흣";
-        }
-        else {
+        } else {
             res += "흐" + "으".repeat(this.arg1 - 2) + "읏";
         }
         res += ".".repeat(this.arg2);

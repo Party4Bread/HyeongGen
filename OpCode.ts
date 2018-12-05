@@ -5,9 +5,11 @@
 /// <reference path="./OpCodes/Primitive/NegAccAdd.ts" />
 /// <reference path="./OpCodes/Primitive/AccMul.ts" />
 /// <reference path="./OpCodes/Halt.ts" />
+/// <reference path="./OpCodes/Putchar.ts" />
+
 /// <reference path="./Command.ts" />
 
-
+/*
 enum OpCode{
     Mul,
     AccMul,
@@ -16,3 +18,4 @@ enum OpCode{
     InvAccMul,
     DupMov
 }
+*/

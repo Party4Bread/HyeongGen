@@ -30,8 +30,9 @@ function tactic(rem:number,numl:Array<number>=[]):Array<number>{
     if(rem==0)return numl;
     let t = isqrt_rem(rem);
     let tt = BigFac(rem);
-    let nnl = numl;
-    let nnnl = numl;
+    
+    let nnl = [...numl];
+    let nnnl = [...numl];
     nnl.push(t[0],t[0]);
     nnnl.push(tt,rem/tt);
 
@@ -67,4 +68,4 @@ let tstts:Command[]=[
     new Halt()
 ];
 console.log(ConvertAsm(tstts))
-console.log(tactic(152))
+console.log(tactic("하".charCodeAt(0)))

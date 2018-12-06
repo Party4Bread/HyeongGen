@@ -21,8 +21,50 @@ function BigFac(s:number):number{
     return i;
 }
 
-function shortMulAdd(s:number):Array<Hyasm.Command>{
-    return [];
+function i3qual_rem(s:number){
+    let st=isqrt_rem(s/3)[0];
+    while((st+1)*(st+1)<s/3){
+        st+=1
+    }
+    return [st,s-(3*st*st)]
+}
+
+function tactic2(rem:number,numl:Array<number>=[]):Array<number>{
+    if(rem<4){
+        if(numl.length==0){
+            if(rem==0) return [1,0]
+            else return [1,rem]
+        }
+        else{
+            if(rem>0)numl.push(1,rem);
+            return numl;
+        }
+    }
+    let t = i3qual_rem(rem);
+    let tt = BigFac(rem);
+    let ttt = isqrt_rem(rem);
+    
+    let nnl = [...numl], nnnl = [...numl], nnnnl = [...numl];
+
+    if(t[0]!=0)nnl.push(t[0],3*t[0]);
+    nnnl.push(rem/tt,tt);
+    nnnnl.push(ttt[0],ttt[0]);
+
+    let t1=tactic2(t[1],nnl);
+    let t2=tactic2(0,nnnl);
+    let t3=tactic2(ttt[1],nnnnl);
+    //let r =1;
+    let mint=t1;
+    if(evensum(mint,true)+(evensum(mint,false)/3)+t1.length>evensum(t2,true)+(evensum(t2,false)/3)+t2.length){
+        mint=t2;
+        //r=2;
+    }
+    if(evensum(mint,true)+(evensum(mint,false)/3)+t1.length>evensum(t3,true)+(evensum(t3,false)/3)+t3.length){
+        mint=t3;
+        //r=3;
+    }
+    //console.log(`${r} hit`);
+    return mint;
 }
 
 function tactic(rem:number,numl:Array<number>=[]):Array<number>{
@@ -53,7 +95,13 @@ function sum(l:Array<number>):number{
     }
     return a;
 }
-
+function evensum(l:Array<number>,startonzero:boolean):number{
+    let a=0;
+    for (let i = startonzero?0:1;i<l.length;i+=2){
+        a+=l[i];
+    }
+    return a;
+}
 function isqrt_rem(s:number):Array<number>{
     let t=Math.floor(Math.sqrt(s))
     let r=s-(t*t)
@@ -70,7 +118,8 @@ function min(x:any){
 
 function GenValMakeAsm(ipt:number,stackaddr:number,forvp:boolean=false):Array<Hyasm.Command>{
     let asmfl = []
-    let numset = tactic(ipt)
+    let numset = tactic2(ipt)
+    //console.log(numset)
     for(let j=0;j<numset.length/2;j++){
         asmfl.push(new Hyasm.Mul(numset[j*2],numset[j*2+1]));
     }
@@ -92,6 +141,11 @@ function GenTextAsm(ipt:string,stackaddr:number=3):Array<Hyasm.Command>{
     return asmfl;
 }
 
+function hyeongshort(s:string):string{
+    return s.replace(/[.]{3}/g, "…");
+}
+
 let asm = GenTextAsm("Hello! World!");
 asm.push(new Hyasm.Halt())
-console.log(ConvertAsm(asm))
+
+console.log(hyeongshort(ConvertAsm(asm)))

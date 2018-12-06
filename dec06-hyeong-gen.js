@@ -173,7 +173,7 @@ var Dec06Ver = {
         return res;
     },
     BigFac(s) {
-        let a = isqrt_rem(s);
+        let a = this.isqrt_rem(s);
         if (a[1] == 0)
             return a[0];
         let i = a[0];
@@ -196,15 +196,15 @@ var Dec06Ver = {
                 return numl;
             }
         }
-        let t = isqrt_rem(rem);
-        let tt = BigFac(rem);
+        let t = this.isqrt_rem(rem);
+        let tt = this.BigFac(rem);
         let nnl = [...numl];
         let nnnl = [...numl];
         nnl.push(t[0], t[0]);
         nnnl.push(rem / tt, tt);
-        let t1 = tactic(t[1], nnl);
-        let t2 = tactic(0, nnnl);
-        return sum(t1) + t1.length < sum(t2) + t2.length ? t1 : t2;
+        let t1 = this.tactic(t[1], nnl);
+        let t2 = this.tactic(0, nnnl);
+        return this.sum(t1) + t1.length < this.sum(t2) + t2.length ? t1 : t2;
     },
     sum(l) {
         let a = 0;
@@ -227,7 +227,7 @@ var Dec06Ver = {
     },
     GenValMakeAsm(ipt, stackaddr, forvp = false) {
         let asmfl = [];
-        let numset = tactic(ipt);
+        let numset = this.tactic(ipt);
         for (let j = 0; j < numset.length / 2; j++) {
             asmfl.push(new Hyasm.Mul(numset[j * 2], numset[j * 2 + 1]));
         }
@@ -241,11 +241,11 @@ var Dec06Ver = {
     },
     GenTextAsm(ipt, stackaddr = 3) {
         let asmfl = [];
-        let m = min(ipt).charCodeAt(0);
-        asmfl.push(...GenValMakeAsm(m, stackaddr));
+        let m = this.min(ipt).charCodeAt(0);
+        asmfl.push(...this.GenValMakeAsm(m, stackaddr));
         asmfl.push(new Hyasm.DupMov(ipt.length, stackaddr));
         for (const i of ipt) {
-            asmfl.push(...GenValMakeAsm(i.charCodeAt(0) - m, 1, true));
+            asmfl.push(...this.GenValMakeAsm(i.charCodeAt(0) - m, 1, true));
         }
         return asmfl;
     }

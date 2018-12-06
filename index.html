@@ -29,7 +29,7 @@
     <script src="dec06-hyeong-gen.js"></script>
     <script>
         function newhyeonggen() {
-            let asm = Dec06Ver.GenTextAsm("Hello! World!");
+            let asm = Dec06Ver.GenTextAsm(document.getElementById("ipt").value);
             asm.push(new Hyasm.Halt());
             document.getElementById("opt").value = Dec06Ver.ConvertAsm(asm);
         }

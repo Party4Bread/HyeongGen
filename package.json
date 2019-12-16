@@ -1,0 +1,48 @@
+{
+  "name": "hyeonggen",
+  "version": "1.0.0",
+  "description": "혀엉 언어 생성기",
+  "main": "hyeong-gen.js",
+  "scripts": {
+    "start": "webpack --mode development",
+    "build": "webpack --mode production",
+    "test": "webpack --mode development && node dist\\app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Party4Bread/HyeongGen.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Party4Bread/HyeongGen/issues"
+  },
+  "homepage": "https://github.com/Party4Bread/HyeongGen#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "@babel/preset-typescript": "^7.7.4",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "lodash-webpack-plugin": "^0.11.5",
+    "ts-loader": "^6.2.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.149",
+    "lodash": "^4.17.15",
+    "typescript": "^3.7.3",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-node-externals": "^1.7.2"
+  }
+}

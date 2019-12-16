@@ -1,5 +1,6 @@
-/// <reference path="../Command.ts" />
-class Halt extends Command{
+import { Command } from "../Command";
+
+export class Halt extends Command{
     
     constructor(){
         super(1,1,'','','','');

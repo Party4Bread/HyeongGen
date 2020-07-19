@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.149",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "typescript": "^3.7.3",
     "webpack-dev-server": "^3.9.0",
     "webpack-node-externals": "^1.7.2"
